@@ -1,4 +1,22 @@
 #### LLM 基础架构与训练范式总结
+> ### 🚀 核心观点：架构选型与“大力出奇迹”
+>
+> *   **同等规模下的架构特长**：
+>     *   在中小参数规模（如 <10B）下，**架构决定上限**。
+>     *   **Encoder-only (BERT/BGE)**：双向注意力机制使其在**判别式任务**（分类、实体识别、语义匹配）上具有天然优势。
+>     *   **Encoder-Decoder (T5/BART)**：Cross-Attention 机制使其在**序列转换任务**（翻译、摘要、改写）上忠实度最高。
+>     *   **Decoder-only (GPT)**：Causal Attention 机制使其在**生成式任务**（创作、对话）上表现最佳。
+>
+> *   **当下的“大一统”趋势**：
+>     *   **Decoder-only 一统江湖**：随着 Scaling Law 的验证，业界发现 **Decoder-only 架构的扩展性（Scalability）和训练稳定性最好**。
+>     *   **大力出奇迹**：通过堆砌算力、数据和参数量（>100B），Decoder-only 模型涌现出了强大的通用能力，**用“高智商”弥补了架构上的“偏科”**。
+>     *   **生态优势**：目前开源社区（HuggingFace, vLLM, Ollama）对 Decoder-only 的支持最完善，微调和部署成本最低。
+>     *   **主流基座推荐**：
+>         *   **Qwen (通义千问)**：中文能力强，多模态/代码表现优异。
+>         *   **DeepSeek (深度求索)**：推理能力强，MoE 架构性价比高。
+>         *   **Llama (Meta)**：生态最丰富，英文基座首选。
+>         *   **Gemma (Google)**：虽然发布较晚，但在端侧（2B/7B）和长上下文上仍有一定竞争力，适合特定场景。
+
 ##### 1. Encoder-only 架构
 - 代表模型：BERT, RoBERTa, BGE (Embedding 模型)
 - 核心特点：双向注意力 (Bidirectional Attention)。每个 token 都能看到上下文所有 token，适合需要全局理解的任务（如分类、实体识别、语义匹配）。
