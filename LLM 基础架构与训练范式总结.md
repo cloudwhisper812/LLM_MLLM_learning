@@ -19,7 +19,7 @@
     - Encoder：输入被中度 Mask 的句子，输出 `[CLS]` 向量 h。
     - Decoder：输入 h + 被重度 Mask 的句子，尝试还原原句。
     - 关键点：Decoder 只能通过 h 获取语义信息，强迫 Encoder 将全句语义极致压缩进 h。
-  - 微调 (Contrastive Learning)：使用有监督数据（Query-Passage 对），拉近正样本距离，推远负样本（特别是 Hard Negatives），进一步优化检索性能。
+  - 微调 (Contrastive Learning)：使用有监督数据（Query-Passage 对）做对比学习，并且找小模型粗召+reranker大模型打高分的case作为hard negative，也可理解为reranker来蒸馏了。
 ##### 2. Encoder-Decoder 架构
 - 代表模型：T5, BART, UL2, BLIP (早期的多模态)
 - 核心特点：Cross-Attention (交叉注意力)。Encoder 负责理解（双向），Decoder 负责生成（单向）。Decoder 的每一层都会通过 Cross-Attention “回头看” Encoder 的完整输出。
