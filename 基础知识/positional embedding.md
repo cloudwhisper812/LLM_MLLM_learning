@@ -8,8 +8,8 @@
 #### 1.1 Learnable PE （BERT, GPT-2, ViT）
 - 在固定长度任务上表现好，比如原始vit的输入图像尺寸固定。完全没法外推
 
-### 2.相对位置编码 Relative PE
-#### 2.1 RoPE (Rotary Positional Embedding)
+### 2.相对位置编码 Relative PE 
+#### 2.1 RoPE (Rotary Positional Embedding) 现在的主流
 - 在计算attention之前，对Q,K进行旋转。位置 m就把向量逆时针旋转 mθ 角度。位置 n就把向量逆时针旋转 nθ角度。当计算两者点积的时候，结果只跟m-n的相对角度有关，跟绝对位置无关。
 - 乘法注入：相比于加法（Add），旋转（Multiply）保留了向量的模长，信息损失更少。
 - 个人理解：直接根据位置旋转q和k，旋转角度和位置以及token里的单个数值的index有关。经过点乘后，相邻的token的角度差距小会被放大内积，远的两个token的角度相差大会被缩小内积。
