@@ -1,6 +1,6 @@
 # LLM/MLLM learning笔记
 
-主要分为两块：**基础知识**（架构、训练范式、位置编码等）和**经典论文**。学习方式主要是看论文 + 和大模型交互问答，这里是自己总结的一些关键点。
+目前笔记主要分为两块：**基础知识**（架构、训练范式、位置编码等）和**经典论文** (后续计划增加大模型coding部分)。学习方式主要是看论文 + 和大模型交互问答，这里是自己总结的一些关键点。
 
 
 ## 一、基础知识
@@ -13,6 +13,9 @@
 | [04. positional embedding](基础知识/04.%20positional%20embedding.md) | Sinusoidal PE, Learnable PE, RoPE, Alibi |
 | [05. normalization](基础知识/05.%20normalization.md) | LN vs BN, Pre-Norm vs Post-Norm, RMSNorm |
 | [06. scaling law](基础知识/06.%20scaling%20law.md) | Power Law, Chinchilla, D≈20N, C≈6ND |
+| [07. MoE](基础知识/07.%20MoE.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
+| [08. MoE](基础知识/07.%20optimizer.md) | Momentum, adaptive learning rate, adam, adamW |
+| [07. MoE](基础知识/07.%20kv cache.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
 | [07. MoE](基础知识/07.%20MoE.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
 
 ---
