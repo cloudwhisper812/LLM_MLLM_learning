@@ -14,7 +14,7 @@
 | [05. normalization](基础知识/05.%20normalization.md) | LN vs BN, Pre-Norm vs Post-Norm, RMSNorm |
 | [06. scaling law](基础知识/06.%20scaling%20law.md) | Power Law, Chinchilla, D≈20N, C≈6ND |
 | [07. MoE](基础知识/07.%20MoE.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
-| [08. MoE](基础知识/07.%20optimizer.md) | Momentum, adaptive learning rate, adam, adamW |
+| [08. optimizer](基础知识/08.%20optimizer.md) | Momentum, adaptive learning rate, adam, adamW |
 | [07. MoE](基础知识/07.%20kv cache.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
 | [07. MoE](基础知识/07.%20MoE.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
 
