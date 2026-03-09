@@ -15,7 +15,7 @@
 | [06. scaling law](基础知识/06.%20scaling%20law.md) | Power Law, Chinchilla, D≈20N, C≈6ND |
 | [07. MoE](基础知识/07.%20MoE.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
 | [08. optimizer](基础知识/08.%20optimizer.md) | Momentum, adaptive learning rate, adam, adamW |
-| [07. MoE](基础知识/07.%20kv cache.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
+| [09. MoE](基础知识/00.%20kv%20cache.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
 | [07. MoE](基础知识/07.%20MoE.md) | Router, Experts, Load Balancing, Top-K, Expert Capacity |
 
 ---
