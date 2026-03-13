@@ -42,6 +42,6 @@
 参考：https://github.com/Hannibal046/Awesome-LLM https://github.com/friedrichor/Awesome-Multimodal-Papers
 | 主题 | 内容 |
 |------|------|
-| [Qlora](经典论文/Qlora.md) | QLoRA: 量化后的高效微调, NF4+LoRA 的整体设计 |
+| [QLoRA](经典论文/Qlora.md) | QLoRA: 量化后的高效微调, NF4+LoRA 的整体设计 |
 | [stable diffusion + DIT](经典论文/stable%20diffusion%20+%20DIT.md) | LDM, VAE, U-Net, DiT |
-| [siglip 1 and 2](经典论文/siglip%201%20and%202.md) | 二分类, MAP, NaViT, 自蒸馏, LocCa |
+| [SigLIP 1 and 2](经典论文/siglip%201%20and%202.md) | 二分类, MAP, NaViT, 自蒸馏, LocCa |
