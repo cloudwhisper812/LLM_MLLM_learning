@@ -40,16 +40,33 @@
 
 ### 2. SFT/Instruct Tuning(指令微调)
 主要目的：将“续写机器”变成“对话助手”，学习指令的格式和拒绝策略（Alignment Tax 往往在这里产生）。
+
 数据：
 - 几万到几十万条高质量的 (Prompt, Response) 对。数据量不大，但对质量要求极度苛刻。核心目的是防止模式崩溃（Mode Collapse），即模型只会用一种语气回答问题。
 - System Prompt 鲁棒性：训练数据中需要混入各种 System Prompt，甚至刻意加入带有约束条件的复杂指令（Evol-Instruct）。
 - 语义聚类与多样性采样 (Diversity Routing)： 用一个 Embedding 模型（如 BGE 或 OpenAI 的 API）把所有指令转成高维向量。然后使用 K-Center Greedy 算法或 HDBSCAN 进行聚类。在每个簇（Cluster）中，根据预先训练的质量打分模型（Reward Model）挑出分数最高的 Top-K 条。这样既保证了质量，又保证了指令在语义空间上的均匀覆盖。
-- 数据收集流程：
+- 格式标准化 (Formatting & Chat Template)：将多轮对话严格转化为 System、User、Assistant 的结构，并注入特殊的控制符号（如 <|im_start|> 和 <|im_end|>）。
+- 数据收集流程（模型越强，人工比例越高： 越是头部的模型，越依赖高质量的人工干预来纠正细微的偏置。）：
   - 人工精造 (Human Annotation) —— 占比约 10%-20%
   - 存量语料转换 (Corpus Conversion) —— 占比约 30%： 将现有的高质量结构化数据“翻译”成对话，考试题库、维基百科词条、GitHub 代码段。
   - 模型自生成 (Synthetic Data / Distillation) —— 占比约 50% 以上：
     - 1. 种子指令采样： 从人工精造的 2000 条种子数据中采样 5 条。
-
-
+    - 2. In-Context Learning 生成： 把这 5 条喂给最强的模型（如 GPT-4o 或自家上一代最强模型），让它模仿风格生成 50 条新指令。
+    - 3. Evol-Instruct 变异： 对生成的指令进行上述的“复杂度进化”。
+    - 4. Response 生成： 再次调用最强模型对这些进化后的指令给出回答
+ 
 训练：
 - Loss Masking (掩码损失)：在计算 Cross-Entropy Loss 时，只对 Response 部分计算梯度，Prompt 部分的 Loss 被 Mask 掉。模型不需要学习去预测用户的提问。
+
+### 3. RL / Alignment (强化学习与对齐)
+主要目的：对齐人类偏好，解决 SFT 中“模型幻觉”或“顺从用户产生有害内容”的问题。
+
+数据：
+- 偏好数据集。对于一个 Prompt，提供模型的两个不同回答 $y_{chosen}$ 和 $y_{rejected}$。无论是 PPO 还是 DPO，模型学习的上限完全取决于你喂给它的 Chosen（好回答）和 Rejected（差回答）的质量。
+- 构建“困难负样本” (Hard Negatives)：故意让模型在一个复杂的推理步骤中错一小步（比如数学计算中间的符号写反，或者代码里的一个变量名用错），将其作为 Rejected。这种高难度的对比数据，能逼迫模型学到真正的逻辑，而不是表面的语法。
+- 对抗长度偏见 (Length Bias Mitigation) 痛点：大模型有个臭毛病，喜欢“长篇大论”，往往会认为字数多的回答就是好回答。在构建偏好数据时，刻意筛选出长度相近的 Chosen 和 Rejected 对；或者在 DPO 的 Loss 函数中引入长度惩罚项，强迫模型在相同信息密度下比拼准确率，而不是比拼谁更能“水字数”。
+- 对齐（Alignment）”上依赖人，在“能力（Capability）”上脱离人。模型必须符合人类的价值观、语调、安全规范。这部分必须由人（或者代表人类价值观的宪法 RLAIF）来把关。模型 A 生成答案 -> 验证器（基于规则或环境）判断对错 -> 正确路径被加入训练集进行迭代。结果： 这种方式产生的数据质量可以远超任何人类标注员，因为它通过大规模采样（Sampling）和搜索（Search）找到了人类难以想到的最优解。
+
+训练：PPO,DPO,GRPO,etc.
+
+## MLLM
