@@ -42,13 +42,15 @@
 ## 三、经典论文
 参考：https://github.com/Hannibal046/Awesome-LLM https://github.com/friedrichor/Awesome-Multimodal-Papers
 | 主题 | 内容 |
-|------|------|
-| [Janus and Janus-Pro](经典论文/Janus%20%20and%20Janus-Pro.md) | 视觉理解/生成双编码器解耦 + 统一 LLM 融合（SigLIP + VQ Tokenizer） |
-| [QLoRA](经典论文/QLoRA.md) | QLoRA: 量化后的高效微调, NF4+LoRA 的整体设计 |
-| [Stable Diffusion + DiT](经典论文/Stable%20Diffusion%20+%20DiT.md) | LDM, VAE, U-Net, DiT |
-| [SigLIP 1 and 2](经典论文/SigLIP%201%20and%202.md) | 二分类, MAP, NaViT, 自蒸馏, LocCa |
-| [ReAct](经典论文/ReAct.md) | Synergizing Reasoning and Acting |
-| [AWQ(Activation-aware Weight Quantization)](经典论文/AWQ(Activation-aware%20Weight%20Quantization).md) | Activation-aware Weight Quantization |
+|:-----|:-----|
+| **1. Milestone Papers** | |
+| 1. [QLoRA](经典论文/QLoRA.md) | QLoRA: 量化后的高效微调, NF4+LoRA 的整体设计 |
+| 2. [ReAct](经典论文/ReAct.md) | Synergizing Reasoning and Acting |
+| 3. [AWQ(Activation-aware Weight Quantization)](经典论文/AWQ(Activation-aware%20Weight%20Quantization).md) | Activation-aware Weight Quantization |
+| **2. MLLM Papers** | |
+| 1. [Janus and Janus-Pro](经典论文/Janus%20%20and%20Janus-Pro.md) | 视觉理解/生成双编码器解耦 + 统一 LLM 融合（SigLIP + VQ Tokenizer） |
+| 2. [Stable Diffusion + DiT](经典论文/Stable%20Diffusion%20+%20DiT.md) | LDM, VAE, U-Net, DiT |
+| 3. [SigLIP 1 and 2](经典论文/SigLIP%201%20and%202.md) | 二分类, MAP, NaViT, 自蒸馏, LocCa |
 
 
 
