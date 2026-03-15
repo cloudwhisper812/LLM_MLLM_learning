@@ -13,6 +13,7 @@
 |------|------|
 | [01. LLM模型架构与训练范式总结](基础知识/LLM模型架构与训练范式总结.md) | Encoder-only (BERT, BGE), Encoder-Decoder (T5, BART, UL2), Decoder-only (GPT, Llama) |
 | [02. MLLM架构](基础知识/MLLM架构(LLaVA,%20BLIP,%20Flamingo,%20end2end).md) | LLaVA, BLIP (Q-Former, CapFilt), Flamingo (Perceiver, interleaved) |
+| [03. LLM/MLLM数据收集和训练流程总结](个人总结/LLM_MLLM数据收集和训练流程.md) | LLM/MLLM Data Collection and Training Pipeline |
 
 ---
 
@@ -46,6 +47,8 @@
 | [QLoRA](经典论文/QLoRA.md) | QLoRA: 量化后的高效微调, NF4+LoRA 的整体设计 |
 | [Stable Diffusion + DiT](经典论文/Stable%20Diffusion%20+%20DiT.md) | LDM, VAE, U-Net, DiT |
 | [SigLIP 1 and 2](经典论文/SigLIP%201%20and%202.md) | 二分类, MAP, NaViT, 自蒸馏, LocCa |
+| [ReAct](经典论文/ReAct.md) | Synergizing Reasoning and Acting |
+| [AWQ(Activation-aware Weight Quantization)](经典论文/AWQ(Activation-aware%20Weight%20Quantization).md) | Activation-aware Weight Quantization |
 
 
 
