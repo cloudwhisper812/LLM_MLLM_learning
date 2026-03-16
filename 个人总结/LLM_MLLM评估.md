@@ -1,11 +1,11 @@
-### LLM
+## LLM
 TODO
 
 
-### MLLM
-> 个人总结的话：1.通用任务，更难更专业。2. 细粒度的视觉理解 3. 测试幻觉 4. 测试作为agent的UI操作的能力
-#### 数据集
-1. 综合与专家知识基准
+## MLLM
+> 个人总结的话：1.通用任务，更难更专业。2. 细粒度的视觉理解 3. 测试幻觉 4. 测试作为agent的UI操作的能力。 选择题，任务题，问答题LLM as judger
+
+### 1. 综合与专家知识基准
 
 MMMU (Massive Multi-discipline Multimodal Understanding)
 - 目前 MLLM 界的“高考”+“考研”，属于专家级多模态基准。
@@ -18,7 +18,7 @@ MMBench (体系化能力雷达)
 - 大模型做选择题有严重的“位置偏置 (Position Bias)”（比如无脑选 C）。MMBench 会把同一个问题的 A/B/C/D 选项顺序打乱，让模型做多次。只有模型在所有顺序下都能选对，这道题才算得分。 这是面试中非常容易被问到的防作弊细节
 - 选择题
   
-2. 细粒度与结构化感知
+### 2. 细粒度与结构化感知
    
 DocVQA / ChartQA / InfoVQA (文档与图表理解)
 - 密集文本识别、版面分析、数据提取。
@@ -28,7 +28,7 @@ MathVista (视觉数学推理)
 - 极其依赖模型在 SFT 阶段学到的思维链（CoT）能力。模型不仅要“看懂”辅助线，还要把视觉信息无缝转换为数学逻辑。
 - 综合推理
 
-3. 幻觉与对齐评测
+### 3. 幻觉与对齐评测
    
 POPE (Polling-based Object Probing Evaluation)
 - 疯狂地问模型 Yes/No 问题，比如“图里有自行车吗？”
@@ -39,7 +39,7 @@ POPE (Polling-based Object Probing Evaluation)
 HallusionBench： 比ROPE更难
 考察点： 专门针对“视觉错觉”和“常识冲突”。图里画了一个红色的苹果，但旁边写着“这是一个香蕉”。考模型是信自己的眼睛（视觉特征），还是信文字（语言特征）。HallusionBench 的数据不是简单的爬虫抓取，而是通过 “原图 + 修改图” 的方式手工打造的。
 
-4. Agentic 与 GUI 操作 (The "Mobile/UI Tracker")
+### 4. Agentic 与 GUI 操作 (The "Mobile/UI Tracker")
 
 ScreenQA / Mind2Web
 - 考察点： 理解手机 App 或网页的 UI 截图。
