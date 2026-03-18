@@ -45,8 +45,9 @@
 | 主题 | 内容 |
 |------|------|
 | [QLoRA](经典论文/QLoRA.md) | QLoRA: 量化后的高效微调, NF4+LoRA 的整体设计 |
-| [ReAct](经典论文/ReAct.md) | Synergizing Reasoning and Acting |
+| [ReAct](经典论文/ReAct.md) | Thought -> Action -> Observation |
 | [AWQ(Activation-aware Weight Quantization)](经典论文/AWQ(Activation-aware%20Weight%20Quantization).md) | Activation-aware Weight Quantization |
+| [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](经典论文/Scaling%20LLM%20Test-Time%20Compute%20Optimally%20can%20be%20More%20Effective%20than%20Scaling%20Model%20Parameters.md) |Test-Time Scaling|
 
 ### **MLLM Papers**
 | 主题 | 内容 |
