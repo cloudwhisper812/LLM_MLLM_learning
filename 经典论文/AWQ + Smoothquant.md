@@ -1,4 +1,6 @@
-# AWQ (Activation-aware Weight Quantization): 保护 1% 精英的 INT4 量化艺术
+> AWQ 通常是w4a16，因为w已经量化太多，为了保持精度a16。AWQ的适用场景是显存bound，节省内存。
+> SmoothQuant适合服务端高并发高吞吐量，w8a8。因为公司场景大batch，通常是coumpute bound。而且高并发对话场景中KV Cache也是一种激活。
+# AWQ (Activation-aware Weight Quantization)
 
 ## 1. 背景：解决的是什么问题？算法核心
 - 大模型的权重分布是极度不平等的，存在大约1% 的“显著权重（Salient Weights）”，它们决定了模型 99% 的智商。如果用传统的 Round-To-Nearest (RTN) 把所有权重一视同仁地硬切成 INT4，这 1% 的关键权重会产生巨大的舍入误差，直接导致模型输出崩溃。
