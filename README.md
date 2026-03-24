@@ -61,6 +61,7 @@
 | [Stable Diffusion + DiT](经典论文/Stable%20Diffusion%20+%20DiT.md) | LDM, VAE, U-Net, DiT |
 | [SigLIP 1 and 2](经典论文/SigLIP%201%20and%202.md) | 二分类, MAP, NaViT, 自蒸馏, LocCa |
 | [ControlNet](经典论文/ControlNet.md) | Adding Conditional Control to Diffusion Models |
+| [Qwen 2.5 VL](经典论文/Qwen%202.5%20VL.md) | Multimodal Rotary Position Embedding, Dynamic FPS, MLP-based Vision-Language Merger, Data (Interleaved, Grounding, Document, Video, Agent), Training Pipeline |
 
 
 
