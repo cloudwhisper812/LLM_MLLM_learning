@@ -6,6 +6,7 @@
 2. enhanced interleaved MRoPE: 2.5的时候MRoPE是把token切成3部分分别对应t，h，w，这样做造成t只有高频，w只有低频。interleaved后保证每个都有高中低频。
 3. DeepStack Integration: 除了siglip的输出token经过mlp进入llm。中间有两层的feature也会经过mlp，然后add到llm vision token对应的第二三层的hidden state上，mlp的最后一层用0初始化。这样做的好处是底层中层数据特征也进入llm。
 4. text-based time alignment for video： 每个frame都用text提前告诉llm对应的timestamp。
+5. square root normalized per-token loss
 
 ## 预训练
 
@@ -24,7 +25,6 @@
 
 ## post training
 
-用square root normalized per-token loss
 
 1. sft - 激活和分化
    -  120w数据。1/3文本，2/3视频和图文。先32k上下文sft，然后256k。
